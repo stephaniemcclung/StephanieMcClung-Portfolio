@@ -32,7 +32,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.subheader('Athlete Monitoring')
     st.write('This project involved analyzing 4 travel flagged football players and comparing their loads to their position average of each practice period to look closer into when exactly they are taking on too much.')
-    with open(r"C:\Users\Stephanie McClung\OneDrive\Documents\Python Sports Science\Sports Science Portfolio\Athlete Flagging - Stephanie McClung.zip", "rb") as file:
+    with open("Athlete Flagging - Stephanie McClung.zip", "rb") as file:
         st.download_button(
          "Download Project",
          file,
