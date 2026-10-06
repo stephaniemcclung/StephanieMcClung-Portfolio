@@ -54,7 +54,7 @@ with col1:
             with col3:
                 st.subheader('Analyzing Testing Data')
                 st.write('A standard procedure to look over the testing we did on the athletes and check for any sudden changes of force power or asymmetry')
-                with open(r"C:\Users\Stephanie McClung\Downloads\DEVO Team 2026- Stephanie McClung.zip", "rb") as file:
+                with open(r"DEVO Team 2026- Stephanie McClung.zip", "rb") as file:
                     st.download_button(
                      "Download Project",
                      file,
