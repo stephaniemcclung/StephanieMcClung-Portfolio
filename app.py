@@ -43,7 +43,7 @@ with col1:
     with col2:
         st.subheader('Statistical Analysis')
         st.write('A course project that involved importing a specific sports dataset and performing statistical analysis on it to find trends and insights.')
-        with open(r"C:\Users\Stephanie McClung\Downloads\Simple heatmaps baseball.html", "rb") as file:
+        with open("Simple heatmaps baseball.html", "rb") as file:
             st.download_button(
              "Download Project",
              file,
