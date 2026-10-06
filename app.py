@@ -13,7 +13,7 @@ st.subheader('Sports Science | Human Performance')
 st.write('Human Performance Specialist Skilled in Sports Science, Data Collection, Athlete Monitoring, Strength and Conditioning, and Data Analytics')
 
 st.header('Resume')
-with open(r"C:\Users\Stephanie McClung\Downloads\Sports resume.docx", "rb") as file:
+with open("Sports resume.docx", "rb") as file:
     st.download_button(
      "Download Resume",
      file,
