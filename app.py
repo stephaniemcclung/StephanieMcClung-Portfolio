@@ -160,7 +160,7 @@ st.markdown(
 
 BASE_DIR = Path(__file__).resolve().parent    
 html_file = BASE_DIR / "Simple heatmaps baseball.html"
-with st.expander("View Statistical Analysis Project"):
+with st.expander("Statistical Analysis"):
     if html_file.exists():
         html_content = html_file.read_text(encoding="utf-8")
         components.html(html_content, height=900, scrolling=True)
