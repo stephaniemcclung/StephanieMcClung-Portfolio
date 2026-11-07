@@ -1,6 +1,8 @@
 import streamlit as st
 from pathlib import Path
+import streamlit.components.v1 as components
 
+BASE_DIR = Path(__file__).resolve().parent
 
 #color and theme settings
 st.markdown(
@@ -128,14 +130,25 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-with open("Athlete Flagging - Stephanie McClung.zip", "rb") as file:
-    st.download_button(
-        "Download Project",
-        file,
-        file_name="Athlete Flagging - Stephanie McClung.zip",
-        mime="application/zip",
-        use_container_width=True
-    )
+
+project_folder = BASE_DIR / "Athlete Flagging - Stephanie McClung"
+
+projects = {
+    "Athlete 1": "Athlete 1.html",
+    "Athlete 2": "Athlete 2.html",
+    "Athlete 3": "Athlete 3.html",
+    "Athlete 4": "Athlete 4.html"
+}
+
+for name, filename in projects.items():
+    with st.expander(name):
+        file_path = project_folder / filename
+
+        if file_path.is_file():
+            html_content = file_path.read_text(encoding="utf-8")
+            components.html(html_content, height=900, scrolling=True)
+        else:
+            st.error(f"File not found: {file_path}")
 
 st.subheader('Statistical Analysis')
 st.markdown(
@@ -144,15 +157,15 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-    
-with open("Simple heatmaps baseball.html", "rb") as file:
-    st.download_button(
-        "Download Project",
-        file,
-        file_name="Simple heatmaps baseball.html",
-        mime="text/html",
-        use_container_width=True
-    )
+
+BASE_DIR = Path(__file__).resolve().parent    
+html_file = BASE_DIR / "Simple heatmaps baseball.html"
+with st.expander("View Statistical Analysis Project"):
+    if html_file.exists():
+        html_content = html_file.read_text(encoding="utf-8")
+        components.html(html_content, height=900, scrolling=True)
+    else:
+        st.error(f"File not found: {html_file}")
 
 st.subheader('Analyzing Data')
 st.markdown(
@@ -161,14 +174,24 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-with open(r"DEVO Team 2026- Stephanie McClung.zip", "rb") as file:
-    st.download_button(
-        "Download Project",
-        file,
-        file_name="Devo Team 2026- Stephanie McClung.zip",
-        mime="application/zip",
-        use_container_width=True
-    )
+
+project_folder = BASE_DIR / "DEVO Team 2026- Stephanie McClung"
+
+projects = {
+    "CMJ": "CMJ.html",
+    "Nordic Curl": "Nordic Curl.html",
+    "Nordic Isoprone": "Nordic Isoprone.html"
+}
+
+for name, filename in projects.items():
+    with st.expander(name):
+        file_path = project_folder / filename
+
+        if file_path.is_file():
+            html_content = file_path.read_text(encoding="utf-8")
+            components.html(html_content, height=900, scrolling=True)
+        else:
+            st.error(f"File not found: {file_path}")
 
 st.subheader('Master Tracker')
 st.markdown(
@@ -177,11 +200,23 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-with open(r"New Member Investment MASTER TRACKER.zip", "rb") as file:
-    st.download_button(
-        "Download Project",
-        file,
-        file_name="New Member Investment MASTER TRACKER.zip",
-        mime="application/zip",
-        use_container_width=True
-    )                    
+
+
+project_folder = BASE_DIR / "New Member Investment MASTER TRACKER"
+
+projects = {
+    "1st Phone Call": "1st Phone Call.html",
+    "2nd Follow Up": "2nd Follow Up.html",
+    "Master Tracker": "Master Tracker.html",
+    "Sales Audit": "Sales Audit.html"
+}
+
+for name, filename in projects.items():
+    with st.expander(name):
+        file_path = project_folder / filename
+
+        if file_path.is_file():
+            html_content = file_path.read_text(encoding="utf-8")
+            components.html(html_content, height=900, scrolling=True)
+        else:
+            st.error(f"File not found: {file_path}")
