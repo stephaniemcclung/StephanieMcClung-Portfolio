@@ -103,21 +103,41 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+import base64
+
 st.header('Resume')
-with open("Sports resume.docx", "rb") as file:
+
+resume_file = BASE_DIR / "resume for streamlit.pdf"
+
+if resume_file.exists():
+
+    resume_bytes = resume_file.read_bytes()
+
+
     st.download_button(
-     "Download Resume",
-     file,
-        file_name="Sports resume.docx",
-        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        use_container_width=True
-)
+        label="Download Resume",
+        data=resume_bytes,
+        file_name="Stephanie_McClung_Resume.pdf",
+        mime="application/pdf"
+    )
+    base64_pdf = base64.b64encode(resume_bytes).decode("utf-8")
 
+    pdf_display = f"""
+        <iframe
+            src="data:application/pdf;base64,{base64_pdf}"
+            width="100%"
+            height="900"
+            style="border: none;">
+        </iframe>
+    """
 
-st.header('Projects')
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
+else:
+    st.error("Resume PDF not found.")
 
 st.divider()
-
+st.header('Projects')
 
 st.subheader('Athlete Monitoring')
 st.markdown(
@@ -166,6 +186,17 @@ with st.expander("Statistical Analysis"):
         components.html(html_content, height=900, scrolling=True)
     else:
         st.error(f"File not found: {html_file}")
+
+    pdf_display = f"""
+        <iframe
+            src="data:application/pdf;base64,{base64_pdf}#toolbar=1&navpanes=0&view=FitH"
+            width="100%"
+            height="950px"
+            style="background-color: #FFFFFF; border: none;"
+        ></iframe>
+    """
+
+    st.markdown(pdf_display, unsafe_allow_html=True)
 
 st.subheader('Analyzing Data')
 st.markdown(
